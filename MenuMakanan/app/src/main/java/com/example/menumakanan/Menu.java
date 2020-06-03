@@ -12,3 +12,20 @@ public class Menu {
         gambar = dataGambar;
         detail = dataDetail;
     }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getHarga() {
+        return harga;
+    }
+
+    public String getGambar() {
+        return gambar;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+}
