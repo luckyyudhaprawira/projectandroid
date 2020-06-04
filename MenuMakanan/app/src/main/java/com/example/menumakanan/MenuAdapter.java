@@ -15,7 +15,10 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         public TextView tvnamadata;
 
         public MenuViewHolder(@NonNull View itemView) {
-            imdata=
+            imdata= itemView.findViewById(R.id.img_menu);
+            tvhargadata= itemView.findViewById(R.id.tv_harga);
+            tvnamadata= itemView.findViewById(R.id.tv_nama);
+            
 
 
 
