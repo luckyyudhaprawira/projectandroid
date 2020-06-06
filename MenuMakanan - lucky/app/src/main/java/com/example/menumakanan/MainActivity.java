@@ -20,34 +20,35 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     private MenuAdapter menuAdapter;
     private RecyclerView recyclerView;
     private ArrayList<Menu> menus;
-    int jumdata;
+    int jumlahData;
     private RequestQueue requestQueue;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView=findViewById(R.id.rv_list);
+        recyclerView = findViewById(R.id.rv_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        menus=new ArrayList<>();
-        requestQueue= Volley.newRequestQueue(this);
+        menus = new ArrayList<>();
+        requestQueue = Volley.newRequestQueue(this);
         parseJSON();
     }
+
     private void parseJSON() {
         String url = "https://daftarmakan.000webhostapp.com/koneksi.php";
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        jumdata = response.length();
+                        jumlahData = response.length();
                         try {
-                            for (int i = 0; i < jumdata; i++) {
+                            for (int i = 0; i < jumlahData; i++) {
                                 JSONObject data = response.getJSONObject(i);
                                 String namaMenu = data.getString("nama");
                                 String hargaMenu = data.getString("harga");
